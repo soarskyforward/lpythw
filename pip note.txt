@@ -1,0 +1,26 @@
+一般情况下PIP出现ReadTimeoutError都是因为被GFW给墙了，所以一般遇到这种问题，我们可以选择国内的镜像来解决问题。
+
+在Windows下：
+
+C:\Users\Administrator\下新建pip文件夹，在创建pip.ini文件，拷贝下面代码进去，保存。
+
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+
+
+
+
+OR
+
+
+解决方法，设置超时时间
+
+pip --default-timeout=100 install -U packages
+
+
+
+OR
+
+仅一次从镜像网站下载，加   -i 网址  包名
+
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyspider

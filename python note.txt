@@ -1,0 +1,101 @@
+import math             from math import sqrt
+math.pi
+sqrt()
+
+	
+from random import randint 
+randint(1, 5)
+
+
+可变参数
+def add(*args):
+    total = 0
+    for val in args:
+	total += val
+    return total
+
+
+#导入的模块除了定义函数之外还中有可以执行代码，那么Python解释器在导入这个模块时就会执行这些代码
+if __name__ == '__main__':
+    foo()
+
+Python 字典(Dictionary) copy() 函数返回一个字典的浅复制。
+dict.copy()
+浅拷贝：深拷贝父对象（一级目录），子对象（二级目录）不拷贝，还是引用
+
+
+str1 = 'hello, world!'
+# 获得字符串首字母大写的拷贝
+print(str1.capitalize())  # Hello, world!
+print(str1.upper())  #HELLO, WORLD!
+print(str1.center(50, '*'))  # 将字符串以指定的宽度靠右放置左侧填充指定的字符
+str3 = '  jackfrued@126.com '
+# 获得字符串修剪左右两侧空格的拷贝
+print(str3.strip())
+
+
+f = [x for x in range(1, 10)]                                                                             f = (x ** 2 for x in range(1, 1000))
+# 用列表的生成表达式语法创建列表容器					#创建的不是一个列表而是一个生成器对象
+# 用这种语法创建列表之后元素已经准备就绪所以需要耗费较多的内存空间  		#通过生成器可以获取到数据但它不占用额外的空间存储数据
+								#每次需要数据的时候就通过内部的运算得到数据(需要花费额外的时间)
+
+我们可以使用sys模块的getsizeof函数来检查存储同样的元素的元组和列表各自占用了多少内存空间
+
+t = ('wei', 2, True)
+person = list(t)              #将元祖转换为列表      not person = t.list()           
+t2 = tuple(person)	     #将列表转换为元祖      not t2 =person.tuple()
+
+dict.update(dict2)            字典(Dictionary) update() 函数把字典dict2的键/值对更新到dict里。
+set.update([11, 12])	        用于修改当前集合，可以添加新的元素或集合到当前集合中，如果添加的元素在集合中已存在，则该元素只会出现一次，重复的会忽略。
+
+print(scores['武则天'])
+    print(scores.get('武则天'))
+    # get方法也是通过键获取对应的值但是可以设置默认值
+    print(scores.get('武则天', 60))
+
+
+import os 
+os.system('cls')
+#清屏
+
+# 访问器 - getter方法                                  @property           #在cal_add函数前加上@property，使得该函数可直接调用，封装起来
+    @property
+    def age(self):
+        return self._age
+
+# 修改器 - setter方法
+    @age.setter
+    def age(self, age):
+        self._age = age
+
+
+from abc import ABCMeta, abstractmethod
+
+class Pet(object, metaclass=ABCMeta):
+    """宠物"""
+
+    def __init__(self, nickname): 				
+        self._nickname = nickname
+
+    @abstractmethod
+    def make_voice(self):
+        """发出声音"""
+        pass
+
+在上面的代码中，我们将Pet类处理成了一个抽象类，所谓抽象类就是不能够创建对象的类，这种类的存在就是专门为了让其他类去继承它。Python从语法层面并没有像Java或C#那样提供对抽象类的支持，但是我们可以通过abc模块的ABCMeta元类和abstractmethod包装器来达到抽象类的效果，如果一个类中存在抽象方法那么这个类就不能够实例化（创建对象）。上面的代码中，Dog和Cat两个子类分别对Pet类中的make_voice抽象方法进行了重写并给出了不同的实现版本，当我们在main函数中调用该方法时，这个方法就表现出了多态行为（同样的方法做了不同的事情）。
+
+
+@staticmethod       #静态方法 类或实例均可调用
+ @classmethod        #在函数前加上@classmethod，则该函数变为类方法，该函数只能访问到类的数据属性，不能获取实例的数据属性     def cal_info(cls):  #python自动传入位置参数cls就是类本身
+
+操作模式	具体含义
+'r'	读取 （默认）
+'w'	写入（会先截断之前的内容）
+'x'	写入，如果文件已经存在会产生异常
+'a'	追加，将内容写入到已有文件的末尾
+'b'	二进制模式
+'t'	文本模式（默认）
+'+'	更新（既可以读又可以写）
+
+在Python中，我们可以将那些在运行时可能会出现状况的代码放在try代码块中，在try代码块的后面可以跟上一个或多个except来捕获可能出现的异常状况。
+finally块的代码不论程序正常还是异常都会执行到（甚至是调用了sys模块的exit函数退出Python环境，finally块都会被执行，因为exit函数实质上是引发了SystemExit异常），因此我们通常把finally块称为“总是执行代码块”，它最适合用来做释放外部资源的操作。如果不愿意在finally代码块中关闭文件对象释放资源，也可以使用上下文语法，通过with关键字指定文件对象的上下文环境并在离开上下文环境时自动释放文件资源

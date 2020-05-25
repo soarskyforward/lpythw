@@ -1,0 +1,79 @@
+'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N)
+ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Mobile Safari/537.36'
+
+
+
+
+
+
+urllib.parse模块里的urlencode（）方法来将参数字典转化为字符串
+with open('favicon.ico', 'wb') as f:第一个参数为文件名，第二个参数代表以二进制写的形式打开，可以向文件写入二进制
+proxies = {
+” http” :"http: I 110 .10.1.10: 3128”,
+“ https”:"http: //10.10.1.10: 1080”,                                                    ```设置代理，
+requests.get("https://www taobao com" proxies=proxies) 
+
+re.I 使匹配对大小写不敏感
+re.S 使.匹配包括换行在内的所有字符
+search（）方法的用法，它可以返回匹配正则表达式的第1个内容    re.s
+findall （）方法:该方法会搜索整个字符串，然后返回匹配正则表达式的所有内容
+
+<dd>.*?board-index.*?>(.*?)</i>.*?data-src="(.*?)".*?name.*?a.*?>(.*?)</a>.*?star.*?>(.*?)</p>.*?rele
+asetime.*?>(.*?)</p>.*?interger.*?>(.*?)</i>.*?fraction.*?>(.*?)</i>.*?</dd>
+
+requests对象的get和post方法都会返回一个Response对象，这个对象里面存的是服务器返回的所有信息，包括响应头，响应状态码等。
+其中返回的网页部分会存在.content和.text两个对象中。两者区别在于，content中间存的是字节码，而text中存的是Beautifulsoup根据
+猜测的编码方式将content内容编码成字符串。直接输出content，会发现前面存在b'这样的标志，这是字节字符串的标志，而text是'，没
+有前面的b,对于纯ascii码，这两个可以说一模一样，对于其他的文字，需要正确编码才能正常显示。大部分情况建议使用.text，因为显示
+的是汉字，但有时会显示乱码，这时需要用.content.decode('utf-8')，中文常用utf-8和GBK，GB2312等。这样可以手工选择文字编码方
+式。所以简而言之，.text是现成的字符串，.content还要编码，但是.text不是所有时候显示都正常，这是就需要用.content进行手动编码。
+
+
+expected_condtions提供了16种判断页面元素的方法：
+
+1.title_is:判断当前页面的title是否完全等于预期字符串，返回布尔值
+
+2.title_contains:判断当前页面的title是否包含预期字符串，返回布尔值
+
+3.presence_of_element_located:判断某个元素是否被加到dom树下,不代表该元素一定可见
+
+4.visibility_of_element_located:判断某个元素是否可见,可见代表元素非隐藏,并且元素的宽和高都不为0
+
+5.visibility_of:跟上面的方法是一样的,只是上面需要传入locator,这个方法直接传定位到的element就好
+
+6.presence_of_all_elements_located:判断是否至少一个元素存在于dom树中,举个例子,如果页面上有n个元素的class都是'coumn-md-3',name只要有一个元素存在,这个方法就返回True
+
+7.text_to_be_present_in_element:判断某个元素中的text文本是否包含预期字符串
+
+8.text_to_be_present_in_element_value:判断某个元素中的value属性值是否包含了预期字符串
+
+9.frame_to_be_availabe_and_switch_to_it:判断该frame是否可以switch进去,如果可以,则返回True并且switch进去,否则返回False
+
+10.invisibility_of_element_located:判断某个元素是否不存在于dom树或不可见
+
+11.element_to_be_clickable:判断某个元素是见并且是enable(有效)的,这样的话才叫clickable
+
+12.staleness_of:等某个元素从dom树下移除,返回True或False
+
+13.element_to_be_selected:判断某个元素是否被选中,一般用于select下拉表
+
+14.element_selection_state_to_be:判断某个元素的选中状态是否符合预期
+
+15.element_located_selection_state_to_be:跟上面的方法一样,只是上面的方法传入定位到的element,这个方法传入locator
+
+16.alert_is_present:判断页面上是会否存在alert
+
+class urllib. request. Request ( url, data=None, headers={}, origin_req_host=None, unverifiable=False, method=None) 
+第二个参数 data 如果要传，必须传 bytes （字节流）类型的 如果它是字典，可以先用
+urllib.parse 模块里的 urlencode （）编码
+第 3个参数 headers 是一个字典，它就是请求头，我们可以在构造请求时通过 headers 参数直
+接构造，也可以通过调用请求实例的 add_header （）方法添加
+
+urllib.parse.queto(text)
+
+
+定义默认参数要牢记一点：默认参数必须指向不变对象！
+Python允许你在list或tuple前面加一个*号，把list或tuple的元素变成可变参数传进去：
+**extra表示把extra这个dict的所有key-value用关键字参数传入到函数的**kw参数
+*args是可变参数，args接收的是一个tuple；
+**kw是关键字参数，kw接收的是一个dict。
