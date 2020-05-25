@@ -1,0 +1,5 @@
+print("Mary had a little lamb.")
+print("Its fleece was white like {}.".format("snow"))
+print("." * 10)
+print("." * 10)
+print("." * 10)
